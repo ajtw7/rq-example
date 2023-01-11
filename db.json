@@ -4,5 +4,6 @@
     { "id": 2, "name": "Superman", "alterEgo": "Clark Kent" },
     { "id": 3, "name": "Wonder Woman", "alterEgo": "Princess Diana" },
     { "id": 4, "name": "Martian Manhunter", "alterEgo": "Jon Jones" }
+
   ]
 }
