@@ -3,7 +3,9 @@
     { "id": 1, "name": "Batman", "alterEgo": "Bruce Wayne" },
     { "id": 2, "name": "Superman", "alterEgo": "Clark Kent" },
     { "id": 3, "name": "Wonder Woman", "alterEgo": "Princess Diana" },
-    { "id": 4, "name": "Martian Manhunter", "alterEgo": "Jon Jones" }
+    { "id": 5, "name": "Green Lantern", "alterEgo": "Hal Jordan" },
+    { "id": 6, "name": "Black Canary", "alterEgo": "Jon Jones" },
+    { "id": 7, "name": "Robin", "alterEgo": "Dick Grayson" }
 
   ]
 }

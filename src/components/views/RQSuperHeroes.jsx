@@ -1,18 +1,21 @@
-import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
+// import { useQuery } from "@tanstack/react-query";
+// import axios from "axios";
 
-const fetchSuperHeroes = async () => {
-  return await axios.get("http://localhost:4000/superheroes");
+import { useSuperHeroData } from "./hooks/useSuperHeroData";
+
+// function called when query successfully fetches data
+const onSuccess = () => {
+  console.log("Perform side effect after data fetching");
+};
+
+// function called when query encounters an error
+const onError = () => {
+  console.log("Perform side effect after encountering error");
 };
 
 export const RQSuperHeroes = () => {
-  const { isLoading, data, isError, error, isFetching } = useQuery({
-    queryKey: ["superheroes"],
-    queryFn: fetchSuperHeroes
-
-    // refetchInterval: 6000,
-    // refetchOnWindowFocus: false
-  });
+  const { isLoading, data, isError, error, isFetching, refetch } =
+    useSuperHeroData(onError, onSuccess);
 
   console.log(isFetching);
 
@@ -36,9 +39,18 @@ export const RQSuperHeroes = () => {
     <>
       <h2>RQSuperHeroes</h2>
       <br />
-      {data?.data.map((hero) => {
-        return <div key={hero.name}>{hero.name}</div>;
+
+      {/* Data Transformation via select */}
+      {data.map((myHero) => {
+        return <div key={myHero}>{myHero}</div>;
       })}
+
+      {/* Tradition mapping */}
+      {/* {data?.data.map((hero) => {
+        return <div key={hero.name}>{hero.name}</div>;
+      })} */}
+      <br />
+      <button onClick={refetch}>FETCH HEROES</button>
     </>
   );
 };
